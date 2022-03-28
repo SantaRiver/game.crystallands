@@ -10,83 +10,80 @@
 
 <script>
 
-import AnchorLink, {ChainId, LinkSession} from 'anchor-link'
+import AnchorLink, {APIError, ChainId} from 'anchor-link'
 import AnchorLinkBrowserTransport from 'anchor-link-browser-transport'
-import blockchains from './assets/blockchains.json'
 
+import blockchains from './assets/blockchains.json'
+import {IdentityProof} from 'eosio-signing-request'
+
+const sessionName = 'crystallands'
 
 export default {
     name: "Anchor",
 
     data: () => ({
-        apiNode: null,
-        chainId: null,
-        selectedChain: null,
+        account: null,
         link: null,
+        error: null,
+        session: null,
+        sessions: null,
+        response: null,
+        proof: null,
+        proofKey: null,
     }),
-    created() {
-        this.selectChain('test');
-        this.link = this.getLink()
-        console.log(blockchains);
-        //this.login()
+    async created() {
+        await this.establishLink()
+    },
+    async mounted() {
+        await this.login()
     },
     methods: {
-        selectChain: function (type) {
-            this.selectedChain = type;
-            this.chainId = chain[type]['chainId'];
-            this.apiNode = chain[type]['nodeUrl'];
-        },
-        getLink: function() {
-            return new AnchorLink({
-                transport: new AnchorLinkBrowserTransport(),
-                chains: [
-                    {
-                        chainId: 'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906',
-                        nodeUrl: 'https://eos.greymass.com',
-                    },
-                ],
+        establishLink: async function () {
+            console.log(blockchains.map(b => ({
+                    chainId: b.chainId,
+                    nodeUrl: `${b.rpcEndpoints[0].protocol}://${b.rpcEndpoints[0].host}:${b.rpcEndpoints[0].port}`
+                })));
+            this.link = new AnchorLink({
+                chains: blockchains.map(b => ({
+                    chainId: b.chainId,
+                    nodeUrl: `${b.rpcEndpoints[0].protocol}://${b.rpcEndpoints[0].host}:${b.rpcEndpoints[0].port}`
+                })),
+                transport: new AnchorLinkBrowserTransport({}),
             })
+            const session = await this.link.restoreSession(sessionName)
+            const sessions = await this.link.listSessions(sessionName)
+            this.error = undefined;
+            this.session = session;
+            this.sessions = sessions;
+
+            if (session) {
+                await this.refreshAccount()
+            }
+            return this.link
         },
-        verifyProof: async (identity) => {
-            // Generate an array of valid chain IDs from the demo configuration
+        verifyProof: async function (identity) {
             const chains = blockchains.map(chain => chain.chainId)
-
-            // Create a proof helper based on the identity results from anchor-link
             const proof = IdentityProof.from(identity.proof)
-
-            // Check to see if the chainId from the proof is valid for this demo
             const chain = chains.find(id => ChainId.from(id).equals(proof.chainId))
             if (!chain) {
                 throw new Error('Unsupported chain supplied in identity proof')
             }
-
-            // Load the account data from a blockchain API
             let account
             try {
                 account = await this.link.client.v1.chain.get_account(proof.signer.actor)
             } catch (error) {
                 if (error instanceof APIError && error.code === 0) {
-                    throw new Error('No such account', 401)
+                    throw new Error('No such account')
                 } else {
                     throw error
                 }
             }
-
-            // Retrieve the auth from the permission specified in the proof
             const auth = account.getPermission(proof.signer.permission).required_auth
-
-            // Determine if the auth is valid with the given proof
             const valid = proof.verify(auth, account.head_block_time)
-
-            // If not valid, throw error
             if (!valid) {
-                throw new Error('Proof invalid or expired', 401)
+                throw new Error('Proof invalid or expired')
             }
-
-            // Recover the key from this proof
             const proofKey = proof.recover();
-
-            // Return the values expected by this demo application
             return {
                 account,
                 proof,
@@ -94,12 +91,14 @@ export default {
                 proofValid: valid,
             }
         },
-        login: async () => {
-            // try {
-            // Use the anchor-link login method with the chain id to establish a session
-            const identity = await this.link.login('anchor-link-demo-multipass')
-
-            // (OPTIONAL) Verify the identity proof
+        toSimpleObject: (v) => JSON.parse(JSON.stringify(v)),
+        refreshAccount: async function() {
+            const {client} = this.link
+            const {actor} = this.state.session.auth
+            this.account = await client.v1.chain.get_account(actor)
+        },
+        login: async function() {
+            const identity = await this.link.login(sessionName)
             const {
                 account,
                 proof,
@@ -107,22 +106,18 @@ export default {
                 proofValid,
             } = await this.verifyProof(identity)
 
-            // Retrieve a list of all available sessions to update demo state
-            const sessions = await this.link.listSessions('anchor-link-demo-multipass')
-            // Update state with the current session and all available sessions
-            this.setState({
-                account,
-                error: undefined,
-                response: undefined,
-                proof,
-                proofKey: String(proofKey),
-                proofValid,
-                session: identity.session,
-                sessions,
-            })
-            // } catch(e) {
-            //   console.log(e)
-            // }
+            const sessions = await this.link.listSessions(sessionName)
+
+            this.account = account;
+            this.error = undefined;
+            this.response = undefined;
+            this.proof = proof;
+            this.proofKey = String(proofKey);
+            this.proofValid = proofValid;
+            this.session = identity.session;
+            this.sessions = sessions;
+            console.log(this.account.get_account());
+
         }
     }
 }
