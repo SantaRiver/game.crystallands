@@ -25,6 +25,9 @@ Vue.component('game', require('./components/Game.vue').default);
 Vue.component('anchor', require('./components/api/Anchor.vue').default);
 Vue.component('wax', require('./components/api/Wax.vue').default);
 
+Vue.component('panel', require('./components/elements/game/Panel.vue').default);
+Vue.component('menu', require('./components/elements/game/Menu.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
