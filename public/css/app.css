@@ -11286,3 +11286,16 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+#panel {
+  height: 100vh;
+  width: 100vw;
+  background: url(/images/map.png?59b13ba972b2da3fee0fdcd066dfe8af) center;
+  background-size: cover;
+}
+
+#game {
+  height: 100vh;
+  width: 100vw;
+  background: url(/images/map.png?59b13ba972b2da3fee0fdcd066dfe8af) center;
+  background-size: cover;
+}

@@ -35,14 +35,10 @@ export default {
         await this.establishLink()
     },
     async mounted() {
-        await this.login()
+        //await this.login()
     },
     methods: {
         establishLink: async function () {
-            console.log(blockchains.map(b => ({
-                    chainId: b.chainId,
-                    nodeUrl: `${b.rpcEndpoints[0].protocol}://${b.rpcEndpoints[0].host}:${b.rpcEndpoints[0].port}`
-                })));
             this.link = new AnchorLink({
                 chains: blockchains.map(b => ({
                     chainId: b.chainId,

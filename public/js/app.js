@@ -45375,9 +45375,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  }
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -45393,23 +45391,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -45493,18 +45474,13 @@ var sessionName = 'crystallands';
       }, _callee);
     }))();
   },
-  mounted: function mounted() {
-    var _this2 = this;
+  mounted: function mounted() {//await this.login()
 
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              _context2.next = 2;
-              return _this2.login();
-
-            case 2:
             case "end":
               return _context2.stop();
           }
@@ -45520,12 +45496,6 @@ var sessionName = 'crystallands';
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                console.log(_assets_blockchains_json__WEBPACK_IMPORTED_MODULE_3__.map(function (b) {
-                  return {
-                    chainId: b.chainId,
-                    nodeUrl: "".concat(b.rpcEndpoints[0].protocol, "://").concat(b.rpcEndpoints[0].host, ":").concat(b.rpcEndpoints[0].port)
-                  };
-                }));
                 this.link = new anchor_link__WEBPACK_IMPORTED_MODULE_1__["default"]({
                   chains: _assets_blockchains_json__WEBPACK_IMPORTED_MODULE_3__.map(function (b) {
                     return {
@@ -45535,32 +45505,32 @@ var sessionName = 'crystallands';
                   }),
                   transport: new anchor_link_browser_transport__WEBPACK_IMPORTED_MODULE_2__["default"]({})
                 });
-                _context3.next = 4;
+                _context3.next = 3;
                 return this.link.restoreSession(sessionName);
 
-              case 4:
+              case 3:
                 session = _context3.sent;
-                _context3.next = 7;
+                _context3.next = 6;
                 return this.link.listSessions(sessionName);
 
-              case 7:
+              case 6:
                 sessions = _context3.sent;
                 this.error = undefined;
                 this.session = session;
                 this.sessions = sessions;
 
                 if (!session) {
-                  _context3.next = 14;
+                  _context3.next = 13;
                   break;
                 }
 
-                _context3.next = 14;
+                _context3.next = 13;
                 return this.refreshAccount();
 
-              case 14:
+              case 13:
                 return _context3.abrupt("return", this.link);
 
-              case 15:
+              case 14:
               case "end":
                 return _context3.stop();
             }
@@ -45721,7 +45691,7 @@ var sessionName = 'crystallands';
                 this.proofValid = proofValid;
                 this.session = identity.session;
                 this.sessions = sessions;
-                console.log(this.account);
+                console.log(this.account.get_account());
 
               case 22:
               case "end":
@@ -110886,23 +110856,10 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container-fluid p-0" }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-8" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header" }, [_vm._v("Game Component")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "container" }, [
-              _c("div", { staticClass: "row" }, [_c("anchor")], 1),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [_c("wax")], 1),
-            ]),
-          ]),
-        ]),
-      ]),
-    ]),
-  ])
+  return _c("div", {
+    staticClass: "container-fluid p-0",
+    attrs: { id: "game" },
+  })
 }
 var staticRenderFns = []
 render._withStripped = true
