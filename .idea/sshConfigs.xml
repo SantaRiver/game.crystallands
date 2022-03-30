@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="194.87.186.52" id="10861191-9a7e-493f-8be8-76a417fe2318" port="22" customName="animezatione" nameFormat="CUSTOM" username="root" useOpenSSHConfig="true">
+        <option name="customName" value="animezatione" />
+      </sshConfig>
+    </configs>
+  </component>
+</project>
