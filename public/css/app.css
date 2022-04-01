@@ -11286,8 +11286,59 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.panel {
+  max-width: 95vw;
+}
 .panel__item {
   color: red;
+}
+
+.modal {
+  /* Modal animation */
+}
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  transition: opacity 0.3s ease;
+}
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+.modal-login-content {
+  padding: 80px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 350px;
+  pointer-events: auto;
+  background: url(/images/board.png?1c2f0bb26212962cbe539ca8cce8da8f) center;
+  background-size: cover;
+  outline: 0;
+}
+.modal-enter-active, .modal-leave-active {
+  transition: opacity 0.2s;
+}
+.modal-enter, .modal-leave-to {
+  opacity: 0;
+}
+
+.btn-anchor {
+  color: #000;
+  background-color: #099cb9;
+  border-color: #099cb9;
+}
+.btn-wax {
+  color: #000;
+  background-color: #d49f00;
+  border-color: #d49f00;
 }
 
 #game {

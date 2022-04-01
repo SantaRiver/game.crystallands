@@ -45392,14 +45392,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _elements_game_GameMenu_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements/game/GameMenu.vue */ "./resources/js/components/elements/game/GameMenu.vue");
-/* harmony import */ var _elements_game_GameModal_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./elements/game/GameModal.vue */ "./resources/js/components/elements/game/GameModal.vue");
+/* harmony import */ var _elements_game_GameLoginModal_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./elements/game/GameLoginModal.vue */ "./resources/js/components/elements/game/GameLoginModal.vue");
 /* harmony import */ var _elements_game_GamePanel_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./elements/game/GamePanel.vue */ "./resources/js/components/elements/game/GamePanel.vue");
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -45415,17 +45409,17 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     GamePanel: _elements_game_GamePanel_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     GameMenu: _elements_game_GameMenu_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    GameModal: _elements_game_GameModal_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    GameModal: _elements_game_GameLoginModal_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   name: "Game"
 });
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/ApiAnchor.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/ApiAnchor.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/AnchorLoginButton.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/AnchorLoginButton.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -45449,17 +45443,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
 
-var sessionName = 'crystallands';
+var sessionName = "crystallands";
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Anchor",
   data: function data() {
@@ -45583,7 +45571,7 @@ var sessionName = 'crystallands';
                   break;
                 }
 
-                throw new Error('Unsupported chain supplied in identity proof');
+                throw new Error("Unsupported chain supplied in identity proof");
 
               case 5:
                 _context4.prev = 5;
@@ -45604,7 +45592,7 @@ var sessionName = 'crystallands';
                   break;
                 }
 
-                throw new Error('No such account');
+                throw new Error("No such account");
 
               case 17:
                 throw _context4.t0;
@@ -45618,7 +45606,7 @@ var sessionName = 'crystallands';
                   break;
                 }
 
-                throw new Error('Proof invalid or expired');
+                throw new Error("Proof invalid or expired");
 
               case 22:
                 proofKey = proof.recover();
@@ -45731,10 +45719,10 @@ var sessionName = 'crystallands';
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/ApiWax.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/ApiWax.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/WaxLoginButton.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/WaxLoginButton.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -45756,21 +45744,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 var chain = {
-  'test': {
-    'nodeUrl': "https://testnet.waxsweden.org",
-    'chainId': "f16b1833c747c43682f4386fca9cbb327929334a762755ebec17f6f23c9b8a12"
+  test: {
+    nodeUrl: "https://testnet.waxsweden.org",
+    chainId: "f16b1833c747c43682f4386fca9cbb327929334a762755ebec17f6f23c9b8a12"
   },
-  'prod': {
-    'nodeUrl': "",
-    'chainId': ""
+  prod: {
+    nodeUrl: "",
+    chainId: ""
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -45790,7 +45772,7 @@ var chain = {
   },
   methods: {
     init: function init() {
-      this.selectChain('test');
+      this.selectChain("test");
       this.wax = new _waxio_waxjs_dist__WEBPACK_IMPORTED_MODULE_1__.WaxJS({
         rpcEndpoint: this.rpcEndpoint,
         userAccount: this.userAccount,
@@ -45799,8 +45781,8 @@ var chain = {
     },
     selectChain: function selectChain(type) {
       this.selectedChain = type;
-      this.chainId = chain[type]['chain_id'];
-      this.rpcEndpoint = chain[type]['nodeUrl'];
+      this.chainId = chain[type]["chain_id"];
+      this.rpcEndpoint = chain[type]["nodeUrl"];
     },
     login: function () {
       var _login = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -45837,6 +45819,73 @@ var chain = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/elements/game/GameLoginModal.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/elements/game/GameLoginModal.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _api_AnchorLoginButton_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api/AnchorLoginButton.vue */ "./resources/js/components/api/AnchorLoginButton.vue");
+/* harmony import */ var _api_WaxLoginButton_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api/WaxLoginButton.vue */ "./resources/js/components/api/WaxLoginButton.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    AnchorLoginButton: _api_AnchorLoginButton_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    WaxLoginButton: _api_WaxLoginButton_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  name: "GameLoginModal",
+  data: function data() {
+    return {
+      showModal: false
+    };
+  },
+  computed: {}
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/elements/game/GameMenu.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/elements/game/GameMenu.vue?vue&type=script&lang=js& ***!
@@ -45856,72 +45905,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Menu"
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/elements/game/GameModal.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/elements/game/GameModal.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Modal",
-  computed: {}
 });
 
 /***/ }),
@@ -46007,11 +45990,11 @@ window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js
 
 Vue.component('app', (__webpack_require__(/*! ./components/App.vue */ "./resources/js/components/App.vue")["default"]));
 Vue.component('game', (__webpack_require__(/*! ./components/Game.vue */ "./resources/js/components/Game.vue")["default"]));
-Vue.component('api-anchor', (__webpack_require__(/*! ./components/api/ApiAnchor.vue */ "./resources/js/components/api/ApiAnchor.vue")["default"]));
-Vue.component('api-wax', (__webpack_require__(/*! ./components/api/ApiWax.vue */ "./resources/js/components/api/ApiWax.vue")["default"]));
+Vue.component('anchor-login-btn', (__webpack_require__(/*! ./components/api/AnchorLoginButton.vue */ "./resources/js/components/api/AnchorLoginButton.vue")["default"]));
+Vue.component('wax-login-btn', (__webpack_require__(/*! ./components/api/WaxLoginButton.vue */ "./resources/js/components/api/WaxLoginButton.vue")["default"]));
 Vue.component('game-panel', (__webpack_require__(/*! ./components/elements/game/GamePanel.vue */ "./resources/js/components/elements/game/GamePanel.vue")["default"]));
 Vue.component('game-menu', (__webpack_require__(/*! ./components/elements/game/GameMenu.vue */ "./resources/js/components/elements/game/GameMenu.vue")["default"]));
-Vue.component('game-modal', (__webpack_require__(/*! ./components/elements/game/GameModal.vue */ "./resources/js/components/elements/game/GameModal.vue")["default"]));
+Vue.component('game-login-modal', (__webpack_require__(/*! ./components/elements/game/GameLoginModal.vue */ "./resources/js/components/elements/game/GameLoginModal.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -110771,10 +110754,10 @@ component.options.__file = "resources/js/components/Game.vue"
 
 /***/ }),
 
-/***/ "./resources/js/components/api/ApiAnchor.vue":
-/*!***************************************************!*\
-  !*** ./resources/js/components/api/ApiAnchor.vue ***!
-  \***************************************************/
+/***/ "./resources/js/components/api/AnchorLoginButton.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/api/AnchorLoginButton.vue ***!
+  \***********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -110782,8 +110765,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _ApiAnchor_vue_vue_type_template_id_7dd19b42_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ApiAnchor.vue?vue&type=template&id=7dd19b42&scoped=true& */ "./resources/js/components/api/ApiAnchor.vue?vue&type=template&id=7dd19b42&scoped=true&");
-/* harmony import */ var _ApiAnchor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ApiAnchor.vue?vue&type=script&lang=js& */ "./resources/js/components/api/ApiAnchor.vue?vue&type=script&lang=js&");
+/* harmony import */ var _AnchorLoginButton_vue_vue_type_template_id_6911ab76_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AnchorLoginButton.vue?vue&type=template&id=6911ab76&scoped=true& */ "./resources/js/components/api/AnchorLoginButton.vue?vue&type=template&id=6911ab76&scoped=true&");
+/* harmony import */ var _AnchorLoginButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AnchorLoginButton.vue?vue&type=script&lang=js& */ "./resources/js/components/api/AnchorLoginButton.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -110793,27 +110776,27 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ApiAnchor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ApiAnchor_vue_vue_type_template_id_7dd19b42_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
-  _ApiAnchor_vue_vue_type_template_id_7dd19b42_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _AnchorLoginButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AnchorLoginButton_vue_vue_type_template_id_6911ab76_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _AnchorLoginButton_vue_vue_type_template_id_6911ab76_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  "7dd19b42",
+  "6911ab76",
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/api/ApiAnchor.vue"
+component.options.__file = "resources/js/components/api/AnchorLoginButton.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/api/ApiWax.vue":
-/*!************************************************!*\
-  !*** ./resources/js/components/api/ApiWax.vue ***!
-  \************************************************/
+/***/ "./resources/js/components/api/WaxLoginButton.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/api/WaxLoginButton.vue ***!
+  \********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -110821,8 +110804,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _ApiWax_vue_vue_type_template_id_5a09b034_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ApiWax.vue?vue&type=template&id=5a09b034&scoped=true& */ "./resources/js/components/api/ApiWax.vue?vue&type=template&id=5a09b034&scoped=true&");
-/* harmony import */ var _ApiWax_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ApiWax.vue?vue&type=script&lang=js& */ "./resources/js/components/api/ApiWax.vue?vue&type=script&lang=js&");
+/* harmony import */ var _WaxLoginButton_vue_vue_type_template_id_0a86f526_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./WaxLoginButton.vue?vue&type=template&id=0a86f526&scoped=true& */ "./resources/js/components/api/WaxLoginButton.vue?vue&type=template&id=0a86f526&scoped=true&");
+/* harmony import */ var _WaxLoginButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./WaxLoginButton.vue?vue&type=script&lang=js& */ "./resources/js/components/api/WaxLoginButton.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -110832,19 +110815,58 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ApiWax_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ApiWax_vue_vue_type_template_id_5a09b034_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
-  _ApiWax_vue_vue_type_template_id_5a09b034_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _WaxLoginButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _WaxLoginButton_vue_vue_type_template_id_0a86f526_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _WaxLoginButton_vue_vue_type_template_id_0a86f526_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  "5a09b034",
+  "0a86f526",
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/api/ApiWax.vue"
+component.options.__file = "resources/js/components/api/WaxLoginButton.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/elements/game/GameLoginModal.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/elements/game/GameLoginModal.vue ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _GameLoginModal_vue_vue_type_template_id_740e7566_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GameLoginModal.vue?vue&type=template&id=740e7566&scoped=true& */ "./resources/js/components/elements/game/GameLoginModal.vue?vue&type=template&id=740e7566&scoped=true&");
+/* harmony import */ var _GameLoginModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GameLoginModal.vue?vue&type=script&lang=js& */ "./resources/js/components/elements/game/GameLoginModal.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _GameLoginModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _GameLoginModal_vue_vue_type_template_id_740e7566_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _GameLoginModal_vue_vue_type_template_id_740e7566_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "740e7566",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/elements/game/GameLoginModal.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -110884,45 +110906,6 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/components/elements/game/GameMenu.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/elements/game/GameModal.vue":
-/*!*************************************************************!*\
-  !*** ./resources/js/components/elements/game/GameModal.vue ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _GameModal_vue_vue_type_template_id_302c7f0a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GameModal.vue?vue&type=template&id=302c7f0a&scoped=true& */ "./resources/js/components/elements/game/GameModal.vue?vue&type=template&id=302c7f0a&scoped=true&");
-/* harmony import */ var _GameModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GameModal.vue?vue&type=script&lang=js& */ "./resources/js/components/elements/game/GameModal.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _GameModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _GameModal_vue_vue_type_template_id_302c7f0a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
-  _GameModal_vue_vue_type_template_id_302c7f0a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  "302c7f0a",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/elements/game/GameModal.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -110998,10 +110981,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/api/ApiAnchor.vue?vue&type=script&lang=js&":
-/*!****************************************************************************!*\
-  !*** ./resources/js/components/api/ApiAnchor.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************/
+/***/ "./resources/js/components/api/AnchorLoginButton.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/api/AnchorLoginButton.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -111009,15 +110992,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiAnchor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ApiAnchor.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/ApiAnchor.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiAnchor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AnchorLoginButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AnchorLoginButton.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/AnchorLoginButton.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AnchorLoginButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/api/ApiWax.vue?vue&type=script&lang=js&":
-/*!*************************************************************************!*\
-  !*** ./resources/js/components/api/ApiWax.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************/
+/***/ "./resources/js/components/api/WaxLoginButton.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/api/WaxLoginButton.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -111025,8 +111008,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiWax_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ApiWax.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/ApiWax.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiWax_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_WaxLoginButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./WaxLoginButton.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/WaxLoginButton.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_WaxLoginButton_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/elements/game/GameLoginModal.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/elements/game/GameLoginModal.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GameLoginModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./GameLoginModal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/elements/game/GameLoginModal.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GameLoginModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -111043,22 +111042,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GameMenu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./GameMenu.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/elements/game/GameMenu.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GameMenu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/elements/game/GameModal.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/components/elements/game/GameModal.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GameModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./GameModal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/elements/game/GameModal.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GameModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -111112,36 +111095,53 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/api/ApiAnchor.vue?vue&type=template&id=7dd19b42&scoped=true&":
-/*!**********************************************************************************************!*\
-  !*** ./resources/js/components/api/ApiAnchor.vue?vue&type=template&id=7dd19b42&scoped=true& ***!
-  \**********************************************************************************************/
+/***/ "./resources/js/components/api/AnchorLoginButton.vue?vue&type=template&id=6911ab76&scoped=true&":
+/*!******************************************************************************************************!*\
+  !*** ./resources/js/components/api/AnchorLoginButton.vue?vue&type=template&id=6911ab76&scoped=true& ***!
+  \******************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiAnchor_vue_vue_type_template_id_7dd19b42_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiAnchor_vue_vue_type_template_id_7dd19b42_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AnchorLoginButton_vue_vue_type_template_id_6911ab76_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AnchorLoginButton_vue_vue_type_template_id_6911ab76_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiAnchor_vue_vue_type_template_id_7dd19b42_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ApiAnchor.vue?vue&type=template&id=7dd19b42&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/ApiAnchor.vue?vue&type=template&id=7dd19b42&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AnchorLoginButton_vue_vue_type_template_id_6911ab76_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AnchorLoginButton.vue?vue&type=template&id=6911ab76&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/AnchorLoginButton.vue?vue&type=template&id=6911ab76&scoped=true&");
 
 
 /***/ }),
 
-/***/ "./resources/js/components/api/ApiWax.vue?vue&type=template&id=5a09b034&scoped=true&":
-/*!*******************************************************************************************!*\
-  !*** ./resources/js/components/api/ApiWax.vue?vue&type=template&id=5a09b034&scoped=true& ***!
-  \*******************************************************************************************/
+/***/ "./resources/js/components/api/WaxLoginButton.vue?vue&type=template&id=0a86f526&scoped=true&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/api/WaxLoginButton.vue?vue&type=template&id=0a86f526&scoped=true& ***!
+  \***************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiWax_vue_vue_type_template_id_5a09b034_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiWax_vue_vue_type_template_id_5a09b034_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_WaxLoginButton_vue_vue_type_template_id_0a86f526_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_WaxLoginButton_vue_vue_type_template_id_0a86f526_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ApiWax_vue_vue_type_template_id_5a09b034_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ApiWax.vue?vue&type=template&id=5a09b034&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/ApiWax.vue?vue&type=template&id=5a09b034&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_WaxLoginButton_vue_vue_type_template_id_0a86f526_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./WaxLoginButton.vue?vue&type=template&id=0a86f526&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/WaxLoginButton.vue?vue&type=template&id=0a86f526&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/elements/game/GameLoginModal.vue?vue&type=template&id=740e7566&scoped=true&":
+/*!*************************************************************************************************************!*\
+  !*** ./resources/js/components/elements/game/GameLoginModal.vue?vue&type=template&id=740e7566&scoped=true& ***!
+  \*************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GameLoginModal_vue_vue_type_template_id_740e7566_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GameLoginModal_vue_vue_type_template_id_740e7566_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GameLoginModal_vue_vue_type_template_id_740e7566_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./GameLoginModal.vue?vue&type=template&id=740e7566&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/elements/game/GameLoginModal.vue?vue&type=template&id=740e7566&scoped=true&");
 
 
 /***/ }),
@@ -111159,23 +111159,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GameMenu_vue_vue_type_template_id_30f87ffe_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GameMenu_vue_vue_type_template_id_30f87ffe_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./GameMenu.vue?vue&type=template&id=30f87ffe&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/elements/game/GameMenu.vue?vue&type=template&id=30f87ffe&scoped=true&");
-
-
-/***/ }),
-
-/***/ "./resources/js/components/elements/game/GameModal.vue?vue&type=template&id=302c7f0a&scoped=true&":
-/*!********************************************************************************************************!*\
-  !*** ./resources/js/components/elements/game/GameModal.vue?vue&type=template&id=302c7f0a&scoped=true& ***!
-  \********************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GameModal_vue_vue_type_template_id_302c7f0a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GameModal_vue_vue_type_template_id_302c7f0a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GameModal_vue_vue_type_template_id_302c7f0a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./GameModal.vue?vue&type=template&id=302c7f0a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/elements/game/GameModal.vue?vue&type=template&id=302c7f0a&scoped=true&");
 
 
 /***/ }),
@@ -111246,12 +111229,13 @@ var render = function () {
       attrs: { id: "game" },
     },
     [
-      _c("div", { staticClass: "p-2" }, [_c("game-panel")], 1),
+      _c("game-panel"),
       _vm._v(" "),
-      _c("div", { staticClass: "p-2" }, [_c("game-modal")], 1),
+      _c("game-login-modal"),
       _vm._v(" "),
-      _c("div", { staticClass: "p-2" }, [_c("game-menu")], 1),
-    ]
+      _c("game-menu"),
+    ],
+    1
   )
 }
 var staticRenderFns = []
@@ -111261,10 +111245,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/ApiAnchor.vue?vue&type=template&id=7dd19b42&scoped=true&":
-/*!*************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/ApiAnchor.vue?vue&type=template&id=7dd19b42&scoped=true& ***!
-  \*************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/AnchorLoginButton.vue?vue&type=template&id=6911ab76&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/AnchorLoginButton.vue?vue&type=template&id=6911ab76&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -111277,17 +111261,11 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col" }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-outline-primary", on: { click: _vm.login } },
-          [_vm._v("login")]
-        ),
-      ]),
-    ]),
-  ])
+  return _c(
+    "button",
+    { staticClass: "btn btn-anchor my-3", on: { click: _vm.login } },
+    [_vm._v("login via Anchor")]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -111296,10 +111274,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/ApiWax.vue?vue&type=template&id=5a09b034&scoped=true&":
-/*!**********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/ApiWax.vue?vue&type=template&id=5a09b034&scoped=true& ***!
-  \**********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/WaxLoginButton.vue?vue&type=template&id=0a86f526&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/api/WaxLoginButton.vue?vue&type=template&id=0a86f526&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -111312,17 +111290,89 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col" }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-outline-primary", on: { click: _vm.login } },
-          [_vm._v("login")]
-        ),
+  return _c(
+    "button",
+    { staticClass: "btn btn-wax my-3", on: { click: _vm.login } },
+    [_vm._v("login via WAX Cloud")]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/elements/game/GameLoginModal.vue?vue&type=template&id=740e7566&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/elements/game/GameLoginModal.vue?vue&type=template&id=740e7566&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("transition", { attrs: { name: "modal" } }, [
+        _vm.showModal
+          ? _c("div", [
+              _c("div", { staticClass: "modal-mask" }, [
+                _c("div", { staticClass: "modal-wrapper" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "modal-dialog",
+                      attrs: { role: "document" },
+                    },
+                    [
+                      _c("div", { staticClass: "modal-login-content" }, [
+                        _c("div", { staticClass: "modal-body" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "container d-flex flex-column justify-content-center align-items-center",
+                            },
+                            [
+                              _c("wax-login-button"),
+                              _vm._v(" "),
+                              _c("anchor-login-button"),
+                            ],
+                            1
+                          ),
+                        ]),
+                      ]),
+                    ]
+                  ),
+                ]),
+              ]),
+            ])
+          : _vm._e(),
       ]),
-    ]),
-  ])
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          on: {
+            click: function ($event) {
+              _vm.showModal = true
+            },
+          },
+        },
+        [_vm._v("Click")]
+      ),
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -111370,124 +111420,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/elements/game/GameModal.vue?vue&type=template&id=302c7f0a&scoped=true&":
-/*!***********************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/elements/game/GameModal.vue?vue&type=template&id=302c7f0a&scoped=true& ***!
-  \***********************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-primary",
-          attrs: {
-            type: "button",
-            "data-toggle": "modal",
-            "data-target": "#exampleModal",
-          },
-        },
-        [_vm._v("\n    Launch demo modal\n  ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "modal fade",
-          attrs: {
-            id: "exampleModal",
-            tabindex: "-1",
-            role: "dialog",
-            "aria-labelledby": "exampleModalLabel",
-            "aria-hidden": "true",
-          },
-        },
-        [
-          _c(
-            "div",
-            { staticClass: "modal-dialog", attrs: { role: "document" } },
-            [
-              _c("div", { staticClass: "modal-content" }, [
-                _c("div", { staticClass: "modal-header" }, [
-                  _c(
-                    "h5",
-                    {
-                      staticClass: "modal-title",
-                      attrs: { id: "exampleModalLabel" },
-                    },
-                    [_vm._v("Modal title")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "close",
-                      attrs: {
-                        type: "button",
-                        "data-dismiss": "modal",
-                        "aria-label": "Close",
-                      },
-                    },
-                    [
-                      _c("span", { attrs: { "aria-hidden": "true" } }, [
-                        _vm._v("×"),
-                      ]),
-                    ]
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-body" }, [_vm._v("...")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "modal-footer" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-secondary",
-                      attrs: { type: "button", "data-dismiss": "modal" },
-                    },
-                    [_vm._v("\n            Close\n          ")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      attrs: { type: "button" },
-                    },
-                    [_vm._v("Save changes")]
-                  ),
-                ]),
-              ]),
-            ]
-          ),
-        ]
-      ),
-    ])
-  },
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/elements/game/GamePanel.vue?vue&type=template&id=0e384c52&scoped=true&":
 /*!***********************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/elements/game/GamePanel.vue?vue&type=template&id=0e384c52&scoped=true& ***!
@@ -111504,99 +111436,83 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "container-fluid container-xl px-0",
-      attrs: { id: "panel" },
-    },
-    [
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "panel__item col-2 d-flex align-self-center position-relative",
-          },
-          [
-            _c("img", {
-              staticClass: "w-100",
-              attrs: {
-                src: "../../images/interface/health.png",
-                alt: "health",
-              },
-            }),
-            _vm._v(" "),
-            _vm._m(0),
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "panel__item col-2 d-flex align-self-center position-relative",
-          },
-          [
-            _c("img", {
-              staticClass: "w-100",
-              attrs: {
-                src: "../../images/interface/hunger.png",
-                alt: "hunger",
-              },
-            }),
-            _vm._v(" "),
-            _vm._m(1),
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-4 position-relative" }, [
+  return _c("div", { staticClass: "panel container-fluid container-xl" }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "panel__item col-2 d-flex align-self-center position-relative",
+        },
+        [
           _c("img", {
             staticClass: "w-100",
-            attrs: {
-              src: "../../images/interface/wallet-btn.png",
-              alt: "wallet-btn",
-            },
+            attrs: { src: "../../images/interface/health.png", alt: "health" },
           }),
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "panel__item col-2 d-flex align-self-center position-relative",
+          _vm._v(" "),
+          _vm._m(0),
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "panel__item col-2 d-flex align-self-center position-relative",
+        },
+        [
+          _c("img", {
+            staticClass: "w-100",
+            attrs: { src: "../../images/interface/hunger.png", alt: "hunger" },
+          }),
+          _vm._v(" "),
+          _vm._m(1),
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-4 position-relative" }, [
+        _c("img", {
+          staticClass: "w-100",
+          attrs: {
+            src: "../../images/interface/wallet-btn.png",
+            alt: "wallet-btn",
           },
-          [
-            _c("img", {
-              staticClass: "w-100",
-              attrs: {
-                src: "../../images/interface/energy.png",
-                alt: "energy",
-              },
-            }),
-            _vm._v(" "),
-            _vm._m(2),
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "panel__item col-2 d-flex align-self-center position-relative",
-          },
-          [
-            _c("img", {
-              staticClass: "w-100",
-              attrs: { src: "../../images/interface/money.png", alt: "money" },
-            }),
-            _vm._v(" "),
-            _vm._m(3),
-          ]
-        ),
+        }),
       ]),
-    ]
-  )
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "panel__item col-2 d-flex align-self-center position-relative",
+        },
+        [
+          _c("img", {
+            staticClass: "w-100",
+            attrs: { src: "../../images/interface/energy.png", alt: "energy" },
+          }),
+          _vm._v(" "),
+          _vm._m(2),
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "panel__item col-2 d-flex align-self-center position-relative",
+        },
+        [
+          _c("img", {
+            staticClass: "w-100",
+            attrs: { src: "../../images/interface/money.png", alt: "money" },
+          }),
+          _vm._v(" "),
+          _vm._m(3),
+        ]
+      ),
+    ]),
+  ])
 }
 var staticRenderFns = [
   function () {

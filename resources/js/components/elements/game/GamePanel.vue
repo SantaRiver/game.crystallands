@@ -1,5 +1,5 @@
 <template>
-    <div id="panel" class="container-fluid container-xl px-0">
+    <div class="panel container-fluid container-xl">
         <div class="row">
             <div class="panel__item col-2 d-flex align-self-center position-relative">
                 <img class="w-100" v-bind:src="'../../images/interface/health.png'" alt="health">

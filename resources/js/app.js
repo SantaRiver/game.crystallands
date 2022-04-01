@@ -22,12 +22,12 @@ window.Vue = require('vue').default;
 Vue.component('app', require('./components/App.vue').default);
 Vue.component('game', require('./components/Game.vue').default);
 
-Vue.component('api-anchor', require('./components/api/ApiAnchor.vue').default);
-Vue.component('api-wax', require('./components/api/ApiWax.vue').default);
+Vue.component('anchor-login-btn', require('./components/api/AnchorLoginButton.vue').default);
+Vue.component('wax-login-btn', require('./components/api/WaxLoginButton.vue').default);
 
 Vue.component('game-panel', require('./components/elements/game/GamePanel.vue').default);
 Vue.component('game-menu', require('./components/elements/game/GameMenu.vue').default);
-Vue.component('game-modal', require('./components/elements/game/GameModal.vue').default);
+Vue.component('game-login-modal', require('./components/elements/game/GameLoginModal.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
