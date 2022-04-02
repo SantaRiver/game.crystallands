@@ -45432,13 +45432,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var anchor_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! anchor-link */ "./node_modules/anchor-link/lib/anchor-link.m.js");
 /* harmony import */ var anchor_link_browser_transport__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! anchor-link-browser-transport */ "./node_modules/anchor-link-browser-transport/lib/anchor-link-browser-transport.m.js");
 /* harmony import */ var _assets_blockchains_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./assets/blockchains.json */ "./resources/js/components/api/assets/blockchains.json");
-/* harmony import */ var eosio_signing_request__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! eosio-signing-request */ "./node_modules/eosio-signing-request/lib/esr.m.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -45452,7 +45455,11 @@ var sessionName = "crystallands";
   name: "Anchor",
   data: function data() {
     return {
-      account: null,
+      account: {
+        name: null,
+        permissions: []
+      },
+      identity: null,
       link: null,
       error: null,
       session: null,
@@ -45498,7 +45505,7 @@ var sessionName = "crystallands";
   methods: {
     establishLink: function () {
       var _establishLink = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
-        var session, sessions;
+        var session;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
@@ -45510,34 +45517,20 @@ var sessionName = "crystallands";
                       nodeUrl: "".concat(b.rpcEndpoints[0].protocol, "://").concat(b.rpcEndpoints[0].host, ":").concat(b.rpcEndpoints[0].port)
                     };
                   }),
-                  transport: new anchor_link_browser_transport__WEBPACK_IMPORTED_MODULE_2__["default"]({})
+                  transport: new anchor_link_browser_transport__WEBPACK_IMPORTED_MODULE_2__["default"]({}),
+                  verifyProofs: true
                 });
                 _context3.next = 3;
                 return this.link.restoreSession(sessionName);
 
               case 3:
                 session = _context3.sent;
-                _context3.next = 6;
-                return this.link.listSessions(sessionName);
-
-              case 6:
-                sessions = _context3.sent;
                 this.error = undefined;
                 this.session = session;
                 this.sessions = sessions;
-
-                if (!session) {
-                  _context3.next = 13;
-                  break;
-                }
-
-                _context3.next = 13;
-                return this.refreshAccount();
-
-              case 13:
                 return _context3.abrupt("return", this.link);
 
-              case 14:
+              case 8:
               case "end":
                 return _context3.stop();
             }
@@ -45551,161 +45544,40 @@ var sessionName = "crystallands";
 
       return establishLink;
     }(),
-    verifyProof: function () {
-      var _verifyProof = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(identity) {
-        var chains, proof, chain, account, auth, valid, proofKey;
+    login: function () {
+      var _login = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+        var _this2 = this;
+
+        var identity, authTrasaction, account, session, proof, proofKey, proofValid;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                chains = _assets_blockchains_json__WEBPACK_IMPORTED_MODULE_3__.map(function (chain) {
-                  return chain.chainId;
+                _context4.next = 2;
+                return this.link.login(sessionName);
+
+              case 2:
+                identity = _context4.sent;
+                this.identity = identity;
+                authTrasaction = identity.proof;
+                console.log("identity", identity.proof.transaction);
+                account = identity.account, session = identity.session, proof = identity.proof, proofKey = identity.proofKey, proofValid = identity.proofValid;
+                this.account.name = "".concat(account.account_name);
+                account.permissions.forEach(function (p) {
+                  _this2.account.permissions.push("".concat(p.perm_name));
                 });
-                proof = eosio_signing_request__WEBPACK_IMPORTED_MODULE_4__.IdentityProof.from(identity.proof);
-                chain = chains.find(function (id) {
-                  return anchor_link__WEBPACK_IMPORTED_MODULE_1__.ChainId.from(id).equals(proof.chainId);
-                });
+                this.proof = proof;
+                this.proofKey = String(proofKey);
+                this.proofValid = proofValid;
+                this.session = session;
+                this.loginRequest(authTrasaction);
 
-                if (chain) {
-                  _context4.next = 5;
-                  break;
-                }
-
-                throw new Error("Unsupported chain supplied in identity proof");
-
-              case 5:
-                _context4.prev = 5;
-                _context4.next = 8;
-                return this.link.client.v1.chain.get_account(proof.signer.actor);
-
-              case 8:
-                account = _context4.sent;
-                _context4.next = 18;
-                break;
-
-              case 11:
-                _context4.prev = 11;
-                _context4.t0 = _context4["catch"](5);
-
-                if (!(_context4.t0 instanceof anchor_link__WEBPACK_IMPORTED_MODULE_1__.APIError && _context4.t0.code === 0)) {
-                  _context4.next = 17;
-                  break;
-                }
-
-                throw new Error("No such account");
-
-              case 17:
-                throw _context4.t0;
-
-              case 18:
-                auth = account.getPermission(proof.signer.permission).required_auth;
-                valid = proof.verify(auth, account.head_block_time);
-
-                if (valid) {
-                  _context4.next = 22;
-                  break;
-                }
-
-                throw new Error("Proof invalid or expired");
-
-              case 22:
-                proofKey = proof.recover();
-                return _context4.abrupt("return", {
-                  account: account,
-                  proof: proof,
-                  proofKey: proofKey,
-                  proofValid: valid
-                });
-
-              case 24:
+              case 14:
               case "end":
                 return _context4.stop();
             }
           }
-        }, _callee4, this, [[5, 11]]);
-      }));
-
-      function verifyProof(_x) {
-        return _verifyProof.apply(this, arguments);
-      }
-
-      return verifyProof;
-    }(),
-    toSimpleObject: function toSimpleObject(v) {
-      return JSON.parse(JSON.stringify(v));
-    },
-    refreshAccount: function () {
-      var _refreshAccount = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
-        var client, actor;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
-          while (1) {
-            switch (_context5.prev = _context5.next) {
-              case 0:
-                client = this.link.client;
-                actor = this.state.session.auth.actor;
-                _context5.next = 4;
-                return client.v1.chain.get_account(actor);
-
-              case 4:
-                this.account = _context5.sent;
-
-              case 5:
-              case "end":
-                return _context5.stop();
-            }
-          }
-        }, _callee5, this);
-      }));
-
-      function refreshAccount() {
-        return _refreshAccount.apply(this, arguments);
-      }
-
-      return refreshAccount;
-    }(),
-    login: function () {
-      var _login = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
-        var identity, _yield$this$verifyPro, account, proof, proofKey, proofValid, sessions;
-
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
-          while (1) {
-            switch (_context6.prev = _context6.next) {
-              case 0:
-                _context6.next = 2;
-                return this.link.login(sessionName);
-
-              case 2:
-                identity = _context6.sent;
-                _context6.next = 5;
-                return this.verifyProof(identity);
-
-              case 5:
-                _yield$this$verifyPro = _context6.sent;
-                account = _yield$this$verifyPro.account;
-                proof = _yield$this$verifyPro.proof;
-                proofKey = _yield$this$verifyPro.proofKey;
-                proofValid = _yield$this$verifyPro.proofValid;
-                _context6.next = 12;
-                return this.link.listSessions(sessionName);
-
-              case 12:
-                sessions = _context6.sent;
-                this.account = account;
-                this.error = undefined;
-                this.response = undefined;
-                this.proof = proof;
-                this.proofKey = String(proofKey);
-                this.proofValid = proofValid;
-                this.session = identity.session;
-                this.sessions = sessions;
-                console.log(this.account.get_account());
-
-              case 22:
-              case "end":
-                return _context6.stop();
-            }
-          }
-        }, _callee6, this);
+        }, _callee4, this);
       }));
 
       function login() {
@@ -45713,7 +45585,19 @@ var sessionName = "crystallands";
       }
 
       return login;
-    }()
+    }(),
+    loginRequest: function loginRequest(data) {
+      axios.post("console", data).then(function (response) {
+        return console.log(response);
+      });
+    },
+    test: function test(data) {
+      axios.post("http://127.0.0.1:8888/v1/chain/get_account", {
+        account_name: "fflro.wam"
+      }).then(function (response) {
+        return console.log(response);
+      });
+    }
   }
 });
 
@@ -45904,7 +45788,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Menu"
+  name: "Menu",
+  data: function data() {
+    return {};
+  }
 });
 
 /***/ }),
@@ -46001,6 +45888,7 @@ Vue.component('game-login-modal', (__webpack_require__(/*! ./components/elements
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+axios.defaults.headers['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').content;
 var app = new Vue({
   el: '#app'
 });
@@ -111261,11 +111149,25 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "button",
-    { staticClass: "btn btn-anchor my-3", on: { click: _vm.login } },
-    [_vm._v("login via Anchor")]
-  )
+  return _c("div", [
+    _c(
+      "button",
+      { staticClass: "btn btn-anchor my-3", on: { click: _vm.login } },
+      [_vm._v("login via Anchor")]
+    ),
+    _vm._v(" "),
+    _c(
+      "button",
+      { staticClass: "btn btn-anchor my-3", on: { click: _vm.loginRequest } },
+      [_vm._v("login request")]
+    ),
+    _vm._v(" "),
+    _c(
+      "button",
+      { staticClass: "btn btn-anchor my-3", on: { click: _vm.test } },
+      [_vm._v("login request")]
+    ),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

@@ -35,6 +35,8 @@ Vue.component('game-login-modal', require('./components/elements/game/GameLoginM
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+axios.defaults.headers['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').content
+
 const app = new Vue({
     el: '#app',
 });

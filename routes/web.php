@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ConsoleController;
+use Whoops\Run;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +19,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pages.game');
 });
+
+Route::post('console', ConsoleController::class)->name('console');
+Route::get('console', ConsoleController::class);
+
+Route::post('login', [LoginController::class, 'login'])->name('login');
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
 

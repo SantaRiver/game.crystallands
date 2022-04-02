@@ -1,5 +1,9 @@
 <template>
-  <button class="btn btn-anchor my-3" @click="login">login via Anchor</button>
+  <div>
+    <button class="btn btn-anchor my-3" @click="login">login via Anchor</button>
+    <button class="btn btn-anchor my-3" @click="loginRequest">login request</button>
+    <button class="btn btn-anchor my-3" @click="test">login request</button>
+  </div>
 </template>
 
 <script>
@@ -15,7 +19,11 @@ export default {
   name: "Anchor",
 
   data: () => ({
-    account: null,
+    account: {
+      name: null,
+      permissions: [],
+    },
+    identity: null,
     link: null,
     error: null,
     session: null,
@@ -38,73 +46,43 @@ export default {
           nodeUrl: `${b.rpcEndpoints[0].protocol}://${b.rpcEndpoints[0].host}:${b.rpcEndpoints[0].port}`,
         })),
         transport: new AnchorLinkBrowserTransport({}),
+        verifyProofs: true,
       });
       const session = await this.link.restoreSession(sessionName);
-      const sessions = await this.link.listSessions(sessionName);
+
       this.error = undefined;
       this.session = session;
       this.sessions = sessions;
 
-      if (session) {
-        await this.refreshAccount();
-      }
       return this.link;
-    },
-    verifyProof: async function (identity) {
-      const chains = blockchains.map((chain) => chain.chainId);
-      const proof = IdentityProof.from(identity.proof);
-      const chain = chains.find((id) => ChainId.from(id).equals(proof.chainId));
-      if (!chain) {
-        throw new Error("Unsupported chain supplied in identity proof");
-      }
-      let account;
-      try {
-        account = await this.link.client.v1.chain.get_account(
-          proof.signer.actor
-        );
-      } catch (error) {
-        if (error instanceof APIError && error.code === 0) {
-          throw new Error("No such account");
-        } else {
-          throw error;
-        }
-      }
-      const auth = account.getPermission(proof.signer.permission).required_auth;
-      const valid = proof.verify(auth, account.head_block_time);
-      if (!valid) {
-        throw new Error("Proof invalid or expired");
-      }
-      const proofKey = proof.recover();
-      return {
-        account,
-        proof,
-        proofKey,
-        proofValid: valid,
-      };
-    },
-    toSimpleObject: (v) => JSON.parse(JSON.stringify(v)),
-    refreshAccount: async function () {
-      const { client } = this.link;
-      const { actor } = this.state.session.auth;
-      this.account = await client.v1.chain.get_account(actor);
     },
     login: async function () {
       const identity = await this.link.login(sessionName);
-      const { account, proof, proofKey, proofValid } = await this.verifyProof(
-        identity
-      );
+      this.identity = identity;
+      const authTrasaction = identity.proof;
+      console.log("identity", identity.proof.transaction);
+      const { account, session, proof, proofKey, proofValid } = identity;
 
-      const sessions = await this.link.listSessions(sessionName);
-
-      this.account = account;
-      this.error = undefined;
-      this.response = undefined;
+      this.account.name = `${account.account_name}`;
+      account.permissions.forEach((p) => {
+        this.account.permissions.push(`${p.perm_name}`);
+      });
       this.proof = proof;
       this.proofKey = String(proofKey);
       this.proofValid = proofValid;
-      this.session = identity.session;
-      this.sessions = sessions;
-      console.log(this.account.get_account());
+      this.session = session;
+
+      this.loginRequest(authTrasaction)
+    },
+    loginRequest: function (data) {
+      axios
+        .post("console", data)
+        .then((response) => console.log(response));
+    },
+    test: function (data) {
+      axios
+        .post("http://127.0.0.1:8888/v1/chain/get_account", {account_name: "fflro.wam"})
+        .then((response) => console.log(response));
     },
   },
 };
