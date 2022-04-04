@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\EOSPHP\Types;
+namespace App\Models\Eos\Types;
 
 class Block
 {

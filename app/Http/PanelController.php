@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EOSPHP\EOSClient;
+use App\Models\Eos\EOSClient;
 use App\Models\User\UserStats;
 use App\Models\User\UserWallet;
 use GuzzleHttp\Exception\GuzzleException;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\EOSPHP\Plugins;
+namespace App\Models\Eos\Plugins;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;

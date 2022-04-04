@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\EOSPHP\EOSClient;
+use App\Models\Eos\EOSClient;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

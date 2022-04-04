@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\EOSCollection;
-use App\Models\EOSPHP\EOSClient;
+use App\Models\Eos\EOSClient;
 use App\Models\Log\EosUserTransaction;
 use App\Models\Log\UserWalletLog;
 use App\Models\User\UserWallet;

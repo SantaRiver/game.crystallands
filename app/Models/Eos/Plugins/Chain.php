@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models\EOSPHP\Plugins;
+namespace App\Models\Eos\Plugins;
 
 use App\Models\Cleos;
-use App\Models\EOSPHP\Types\Block;
-use App\Models\EOSPHP\Types\Info;
+use App\Models\Eos\Types\Block;
+use App\Models\Eos\Types\Info;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 

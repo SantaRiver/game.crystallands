@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models\EOSPHP;
+namespace App\Models\Eos;
 
-use App\Models\EOSPHP\Plugins\Chain;
-use App\Models\EOSPHP\Plugins\History;
-use App\Models\EOSPHP\Plugins\Wallet;
+use App\Models\Eos\Plugins\Chain;
+use App\Models\Eos\Plugins\History;
+use App\Models\Eos\Plugins\Wallet;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Config;
 use JetBrains\PhpStorm\Pure;
