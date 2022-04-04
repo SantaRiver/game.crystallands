@@ -194,4 +194,6 @@ return [
         // ...
     ])->toArray(),
 
+    'atomic.url' => env('ATOMIC_URL'),
+
 ];
