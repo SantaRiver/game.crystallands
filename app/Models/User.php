@@ -17,12 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'permissions',
-        'keys',
-        'type',
-    ];
+    protected $fillable = ['name', 'permission', 'key', 'type', 'active', 'auth_type',];
 
     public function stats(){
         return $this->hasOne('App\Models\User\UserStats');

@@ -45432,14 +45432,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var anchor_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! anchor-link */ "./node_modules/anchor-link/lib/anchor-link.m.js");
 /* harmony import */ var anchor_link_browser_transport__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! anchor-link-browser-transport */ "./node_modules/anchor-link-browser-transport/lib/anchor-link-browser-transport.m.js");
 /* harmony import */ var _assets_blockchains_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./assets/blockchains.json */ "./resources/js/components/api/assets/blockchains.json");
+/* harmony import */ var eosio_signing_request__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! eosio-signing-request */ "./node_modules/eosio-signing-request/lib/esr.m.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
-//
 //
 //
 //
@@ -45527,10 +45526,9 @@ var sessionName = "crystallands";
                 session = _context3.sent;
                 this.error = undefined;
                 this.session = session;
-                this.sessions = sessions;
                 return _context3.abrupt("return", this.link);
 
-              case 8:
+              case 7:
               case "end":
                 return _context3.stop();
             }
@@ -45544,23 +45542,108 @@ var sessionName = "crystallands";
 
       return establishLink;
     }(),
-    login: function () {
-      var _login = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
-        var _this2 = this;
-
-        var identity, authTrasaction, account, session, proof, proofKey, proofValid;
+    verifyProof: function () {
+      var _verifyProof = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(identity) {
+        var chains, proof, chain, account, auth, valid, proofKey;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                _context4.next = 2;
+                // Generate an array of valid chain IDs from the demo configuration
+                chains = _assets_blockchains_json__WEBPACK_IMPORTED_MODULE_3__.map(function (chain) {
+                  return chain.chainId;
+                }); // Create a proof helper based on the identity results from anchor-link
+
+                proof = eosio_signing_request__WEBPACK_IMPORTED_MODULE_4__.IdentityProof.from(identity.proof); // Check to see if the chainId from the proof is valid for this demo
+
+                chain = chains.find(function (id) {
+                  return anchor_link__WEBPACK_IMPORTED_MODULE_1__.ChainId.from(id).equals(proof.chainId);
+                });
+
+                if (chain) {
+                  _context4.next = 5;
+                  break;
+                }
+
+                throw new Error('Unsupported chain supplied in identity proof');
+
+              case 5:
+                _context4.prev = 5;
+                _context4.next = 8;
+                return this.link.client.v1.chain.get_account(proof.signer.actor);
+
+              case 8:
+                account = _context4.sent;
+                _context4.next = 18;
+                break;
+
+              case 11:
+                _context4.prev = 11;
+                _context4.t0 = _context4["catch"](5);
+
+                if (!(_context4.t0 instanceof anchor_link__WEBPACK_IMPORTED_MODULE_1__.APIError && _context4.t0.code === 0)) {
+                  _context4.next = 17;
+                  break;
+                }
+
+                throw new Error('No such account', 401);
+
+              case 17:
+                throw _context4.t0;
+
+              case 18:
+                // Retrieve the auth from the permission specified in the proof
+                auth = account.getPermission(proof.signer.permission).required_auth; // Determine if the auth is valid with the given proof
+
+                valid = proof.verify(auth, account.head_block_time); // If not valid, throw error
+
+                if (valid) {
+                  _context4.next = 22;
+                  break;
+                }
+
+                throw new Error('Proof invalid or expired', 401);
+
+              case 22:
+                // Recover the key from this proof
+                proofKey = proof.recover(); // Return the values expected by this demo application
+
+                return _context4.abrupt("return", {
+                  account: account,
+                  proof: proof,
+                  proofKey: proofKey,
+                  proofValid: valid
+                });
+
+              case 24:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this, [[5, 11]]);
+      }));
+
+      function verifyProof(_x) {
+        return _verifyProof.apply(this, arguments);
+      }
+
+      return verifyProof;
+    }(),
+    login: function () {
+      var _login = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
+        var _this2 = this;
+
+        var identity, account, session, proof, proofKey, proofValid;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.next = 2;
                 return this.link.login(sessionName);
 
               case 2:
-                identity = _context4.sent;
+                identity = _context5.sent;
                 this.identity = identity;
-                authTrasaction = identity.proof;
-                console.log("identity", identity.proof.transaction);
                 account = identity.account, session = identity.session, proof = identity.proof, proofKey = identity.proofKey, proofValid = identity.proofValid;
                 this.account.name = "".concat(account.account_name);
                 account.permissions.forEach(function (p) {
@@ -45570,14 +45653,15 @@ var sessionName = "crystallands";
                 this.proofKey = String(proofKey);
                 this.proofValid = proofValid;
                 this.session = session;
-                this.loginRequest(authTrasaction);
+                _context5.next = 13;
+                return this.loginRequest();
 
-              case 14:
+              case 13:
               case "end":
-                return _context4.stop();
+                return _context5.stop();
             }
           }
-        }, _callee4, this);
+        }, _callee5, this);
       }));
 
       function login() {
@@ -45586,18 +45670,48 @@ var sessionName = "crystallands";
 
       return login;
     }(),
-    loginRequest: function loginRequest(data) {
-      axios.post("console", data).then(function (response) {
-        return console.log(response);
-      });
-    },
-    test: function test(data) {
-      axios.post("http://127.0.0.1:8888/v1/chain/get_account", {
-        account_name: "fflro.wam"
-      }).then(function (response) {
-        return console.log(response);
-      });
-    }
+    loginRequest: function () {
+      var _loginRequest = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
+        var _yield$this$verifyPro, account, proof, proofKey, proofValid, loginRequest;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                _context6.next = 2;
+                return this.verifyProof(this.identity);
+
+              case 2:
+                _yield$this$verifyPro = _context6.sent;
+                account = _yield$this$verifyPro.account;
+                proof = _yield$this$verifyPro.proof;
+                proofKey = _yield$this$verifyPro.proofKey;
+                proofValid = _yield$this$verifyPro.proofValid;
+                loginRequest = {
+                  account: account,
+                  proof: proof,
+                  proofKey: proofKey,
+                  proofValid: proofValid,
+                  authType: 'anchor'
+                };
+                axios.post("login", loginRequest).then(function (response) {
+                  return console.log(response);
+                });
+
+              case 9:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6, this);
+      }));
+
+      function loginRequest() {
+        return _loginRequest.apply(this, arguments);
+      }
+
+      return loginRequest;
+    }()
   }
 });
 
@@ -45695,6 +45809,7 @@ var chain = {
       return login;
     }(),
     getUserAccount: function getUserAccount() {
+      //console.log(wax.user.verifyTx);
       this.userAccount = wax.user.account;
       this.keys = wax.user.keys;
     }
@@ -111154,18 +111269,6 @@ var render = function () {
       "button",
       { staticClass: "btn btn-anchor my-3", on: { click: _vm.login } },
       [_vm._v("login via Anchor")]
-    ),
-    _vm._v(" "),
-    _c(
-      "button",
-      { staticClass: "btn btn-anchor my-3", on: { click: _vm.loginRequest } },
-      [_vm._v("login request")]
-    ),
-    _vm._v(" "),
-    _c(
-      "button",
-      { staticClass: "btn btn-anchor my-3", on: { click: _vm.test } },
-      [_vm._v("login request")]
     ),
   ])
 }

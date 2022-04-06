@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->boolean('active')->default(1);
-            $table->string('permissions');
-            $table->json('keys');
-            $table->string('auth_type');
             $table->string('type');
+            $table->boolean('active')->default(1);
+            $table->string('permission');
+            $table->string('key');
+            $table->string('auth_type');
             $table->timestamps();
         });
     }
