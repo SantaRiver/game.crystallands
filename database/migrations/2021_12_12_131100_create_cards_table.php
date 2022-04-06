@@ -19,8 +19,13 @@ class CreateCardsTable extends Migration
             $table->string('schema');
             $table->string('template_id')->unique();
             $table->text('description')->nullable();
+            $table->boolean('is_transferable')->default(true);
+            $table->boolean('is_burnable')->default(true);
+            $table->integer('issued_supply')->default(0);
+            $table->integer('max_supply')->default(0);
+            $table->json('immutable_data');
+            $table->dateTime('created_at_time');
             $table->string('image');
-            $table->string('image_preview');
             $table->timestamps();
         });
     }
