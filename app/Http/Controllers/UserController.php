@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\User\UserItems;
 use App\Models\User\UserResources;
 use App\Models\User\UserStats;
@@ -14,26 +15,19 @@ class UserController extends Controller
 {
     public function show(): Factory|View|Application
     {
-        $user = Auth::user();
+        $user = User::query()->find(Auth::id())->with(['resources', 'stats', 'items' => function($items){
+            $items->join('item_assets', 'user_items.item_asset_id', '=', 'item_assets.id')
+                ->join('items', 'item_assets.item_id', '=', 'items.id')
+                ->join('cards', 'items.card_id', '=', 'cards.id');
+        }])->first();
+        dd($user);
 
-        $userStats = UserStats::query()->firstWhere('user_id', $user['id']);
-        $userResources = UserResources::query()->firstWhere('user_id', $user['id']);
-        $userItems = UserItems::query()->where('user_id', '=', $user['id'])
-            ->join('item_assets', 'user_items.item_asset_id', '=', 'item_assets.id')
-            ->join('items', 'item_assets.item_id', '=', 'items.id')
-            ->join('cards', 'items.card_id', '=', 'cards.id')
-            ->get();
-
-        return view(
+        /*return view(
             'components.user',
             [
-                'user' => [
-                    'stats' => $userStats,
-                    'resources' => $userResources,
-                    'items' => $userItems,
-                ]
+                'user' => $user
             ]
-        );
+        );*/
     }
 
 }

@@ -24,4 +24,12 @@ class User extends Authenticatable
         'type',
     ];
 
+    public function stats(){
+        return $this->hasOne('App\Models\User\UserStats');
+    }
+
+    public function wallet(){
+        return $this->hasOne('App\Models\User\UserWallet');
+    }
+
 }

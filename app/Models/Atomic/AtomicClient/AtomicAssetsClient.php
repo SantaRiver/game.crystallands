@@ -21,7 +21,7 @@ class AtomicAssetsClient extends Model implements AtomicClientInterface
 
     const METHODS = [
         'assets' => ['method' => 'GET', 'uri' => '/assets'],
-        'assetsId' => ['method' => 'GET', 'uri' => '/assets/{id}'],
+        'asset2sId' => ['method' => 'GET', 'uri' => '/assets/{id}'],
 
         'collections' => ['method' => 'GET', 'uri' => '/collections'],
         'collectionsName' => ['method' => 'GET', 'uri' => '/collections/{collection_name}'],

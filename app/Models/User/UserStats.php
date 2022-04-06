@@ -15,4 +15,9 @@ class UserStats extends Model
         'hunger',
         'energy',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }
