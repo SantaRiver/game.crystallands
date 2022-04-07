@@ -8,6 +8,7 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 use Illuminate\Support\Facades\Event;
 use App\Events\NewUser;
 use App\Listeners\PostCreatedUser;
+use App\Listeners\ScanInventory;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -22,6 +23,7 @@ class EventServiceProvider extends ServiceProvider
         ],
         NewUser::class => [
             PostCreatedUser::class,
+            ScanInventory::class,
         ],
     ];
 
