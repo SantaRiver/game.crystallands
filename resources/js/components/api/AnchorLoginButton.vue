@@ -7,29 +7,33 @@
 <script>
 import AnchorLink, {APIError, ChainId} from "anchor-link";
 import AnchorLinkBrowserTransport from "anchor-link-browser-transport";
+import {AuthService} from "../../services/auth.service";
 
 import blockchains from "./assets/blockchains.json";
 import {IdentityProof} from "eosio-signing-request";
+import {eventBus} from "../../app";
 
 const sessionName = "crystallands";
 
 export default {
     name: "Anchor",
 
-    data: () => ({
-        account: {
-            name: null,
-            permissions: [],
-        },
-        identity: null,
-        link: null,
-        error: null,
-        session: null,
-        sessions: null,
-        response: null,
-        proof: null,
-        proofKey: null,
-    }),
+    data: function(){
+        return {
+            account: {
+                name: null,
+                permissions: [],
+            },
+            identity: null,
+            link: null,
+            error: null,
+            session: null,
+            sessions: null,
+            response: null,
+            proof: null,
+            proofKey: null,
+        }
+    },
     async created() {
         await this.establishLink();
     },
@@ -130,9 +134,7 @@ export default {
                 proofValid: proofValid,
                 authType: 'anchor',
             }
-            axios
-                .post("login", loginRequest)
-                .then((response) => console.log(response));
+            AuthService.login(loginRequest);
         }
     },
 };

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\UpdateUserAssets;
 use App\Models\Atomic\AtomicClient\AtomicClient;
 use App\Models\Cards;
 use App\Models\User;
@@ -25,12 +26,12 @@ class ConsoleController extends Controller
     {
         /** @var User $user */
         $user = Auth::user();
-        $client = new AtomicClient();
-        $inventory = $client->inventory($user);
-        foreach ($inventory as $asset){
-            $userAsset = new User\UserAsset(['user_id' => $user->id, 'asset_id' => $asset['asset_id']]);
-            $userAsset->save();
-        }
-        dd($inventory);
+        /*$client = new AtomicClient();
+        for ($i = 0; $i < 1000; $i++) {
+            $client->assets();
+        }*/
+        UpdateUserAssets::dispatch($user);
+        //$inventory = $client->assets();
+        //dd($inventory);
     }
 }

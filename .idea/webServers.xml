@@ -2,10 +2,10 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="1b113a72-1ca6-47e4-b143-bf9fe0c2d03a" name="animezatione">
-        <fileTransfer accessType="SFTP" host="194.87.186.52" port="22" sshConfigId="10861191-9a7e-493f-8be8-76a417fe2318" sshConfig="animezatione">
+      <webServer id="cba252d9-a52c-43bd-8edb-b5f5375c2e31" name="crsa" url="http://194.87.186.52">
+        <fileTransfer host="194.87.186.52" port="21">
           <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
         </fileTransfer>
       </webServer>

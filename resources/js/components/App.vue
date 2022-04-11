@@ -3,9 +3,17 @@
 </template>
 
 <script>
+
 export default {
-    mounted() {
-        
+    props: ['user'],
+    data: function() {
+        return {
+            user : null,
+        }
+    },
+    created () {
+        this.user = JSON.parse(this.user);
+        console.log(this.user);
     }
 }
 </script>

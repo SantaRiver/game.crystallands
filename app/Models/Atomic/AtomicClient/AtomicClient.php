@@ -21,7 +21,7 @@ class AtomicClient extends Model
      * @return array
      * @throws Exception
      */
-    public function assets(array $params): array
+    public function assets(array $params = []): array
     {
         return $this->client->call('assets', $params);
     }
