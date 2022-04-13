@@ -16,10 +16,9 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::prefix('users')->group(function () {
-    Route::resource(null, UserController::class);
-    Route::get('{user}/stats', [UserStatsController::class, 'show']);
-    Route::get('{user}/wallet', [UserWalletController::class, 'show']);
-    Route::get('{user}/resources', [UserResourcesController::class, 'show']);
+Route::resource('users', UserController::class);
+Route::prefix('users/{user}')->group(function () {
+    Route::get('stats', [UserStatsController::class, 'show']);
+    Route::get('wallet', [UserWalletController::class, 'show']);
+    Route::get('resources', [UserResourcesController::class, 'show']);
 });
