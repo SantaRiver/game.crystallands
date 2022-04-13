@@ -1,19 +1,21 @@
 <template>
-    <game></game>
+    <div>
+        <game></game>
+    </div>
 </template>
 
 <script>
+import {mapGetters, mapActions} from "vuex";
+import Game from "./Game";
 
 export default {
-    props: ['user'],
-    data: function() {
-        return {
-            user : null,
-        }
-    },
-    created () {
-        this.user = JSON.parse(this.user);
-        console.log(this.user);
+    name: "app",
+    components: {Game},
+    props: ["loggedUser"],
+    computed: mapGetters(["user"]),
+    methods: mapActions(["getUser", "setUser"]),
+    created() {
+        this.setUser(JSON.parse(this.loggedUser));
     }
 }
 </script>

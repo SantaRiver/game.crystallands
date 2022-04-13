@@ -20,7 +20,6 @@ class CreateUserResourcesTable extends Migration
             $table->float('stone', 16,6)->default(0);
             $table->float('iron', 16,6)->default(0);
             $table->float('iron_ingot', 16,6)->default(0);
-            $table->timestamps();
         });
     }
 

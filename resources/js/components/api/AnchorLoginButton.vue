@@ -11,7 +11,6 @@ import {AuthService} from "../../services/auth.service";
 
 import blockchains from "./assets/blockchains.json";
 import {IdentityProof} from "eosio-signing-request";
-import {eventBus} from "../../app";
 
 const sessionName = "crystallands";
 

@@ -2,6 +2,6 @@
 
 @section('app')
     <app
-        :user="'{{ json_encode($user) }}'">
+        :logged-user="'{{ json_encode($user) }}'">
     </app>
 @endsection

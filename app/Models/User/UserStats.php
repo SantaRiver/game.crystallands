@@ -16,6 +16,8 @@ class UserStats extends Model
         'energy',
     ];
 
+    public $timestamps = false;
+
     public function user()
     {
         return $this->belongsTo('App\Models\User');

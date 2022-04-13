@@ -16,4 +16,6 @@ class UserResources extends Model
         'iron',
         'iron_ingot',
     ];
+
+    public $timestamps = false;
 }

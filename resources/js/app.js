@@ -7,6 +7,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue').default;
+import store from './store'
 
 /**
  * The following block of code may be used to automatically register your
@@ -40,5 +41,6 @@ axios.defaults.headers['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf
 export const eventBus = new Vue()
 
 export const app = new Vue({
+    store,
     el: '#app',
 });

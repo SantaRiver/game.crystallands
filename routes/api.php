@@ -1,6 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\User\UserController;
+use App\Http\Controllers\Api\User\UserResourcesController;
+use App\Http\Controllers\Api\User\UserStatsController;
+use App\Http\Controllers\Api\User\UserWalletController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('users')->group(function () {
+    Route::resource(null, UserController::class);
+    Route::get('{user}/stats', [UserStatsController::class, 'show']);
+    Route::get('{user}/wallet', [UserWalletController::class, 'show']);
+    Route::get('{user}/resources', [UserResourcesController::class, 'show']);
 });

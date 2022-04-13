@@ -19,7 +19,6 @@ class CreateUserStatsTable extends Migration
             $table->float('health')->default(100);
             $table->float('hunger')->default(300);
             $table->float('energy')->default(100);
-            $table->timestamps();
         });
     }
 
