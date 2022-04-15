@@ -11289,10 +11289,6 @@ textarea.form-control-lg {
 .panel {
   max-width: 95vw;
 }
-.panel__item {
-  color: red;
-}
-
 .modal {
   /* Modal animation */
 }
