@@ -7,16 +7,18 @@
 <script>
 import AnchorLink, {APIError, ChainId} from "anchor-link";
 import AnchorLinkBrowserTransport from "anchor-link-browser-transport";
-import {AuthService} from "../../services/auth.service";
 
 import blockchains from "./assets/blockchains.json";
 import {IdentityProof} from "eosio-signing-request";
+import {mapActions, mapGetters} from "vuex";
 
 const sessionName = "crystallands";
 
 export default {
     name: "Anchor",
 
+    props: ["loggedUser"],
+    computed: mapGetters(["user"]),
     data: function(){
         return {
             account: {
@@ -40,6 +42,7 @@ export default {
         //await this.login()
     },
     methods: {
+        ...mapActions(["loginUser"]),
         establishLink: async function () {
             this.link = new AnchorLink({
                 chains: blockchains.map((b) => ({
@@ -133,7 +136,7 @@ export default {
                 proofValid: proofValid,
                 authType: 'anchor',
             }
-            AuthService.login(loginRequest);
+            this.loginUser(loginRequest);
         }
     },
 };

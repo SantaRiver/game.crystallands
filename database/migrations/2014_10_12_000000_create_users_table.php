@@ -21,6 +21,10 @@ return new class extends Migration
             $table->string('permission');
             $table->string('key');
             $table->string('auth_type');
+            $table->string('api_token', 80)
+                ->unique()
+                ->nullable()
+                ->default(null);
             $table->timestamps();
         });
     }

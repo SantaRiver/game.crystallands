@@ -1,7 +1,7 @@
 <template>
     <div>
         <transition name="modal">
-            <div v-if="showModal">
+            <div v-if="!isLoggedIn">
                 <div class="modal-mask">
                     <div class="modal-wrapper">
                         <div class="modal-dialog" role="document">
@@ -24,11 +24,12 @@
 <script>
 import AnchorLoginButton from "../../api/AnchorLoginButton.vue";
 import WaxLoginButton from "../../api/WaxLoginButton.vue";
+import {mapGetters} from "vuex";
 
 export default {
-    components: {AnchorLoginButton, WaxLoginButton},
     name: "GameLoginModal",
-    props: ["showModal"],
+    computed: mapGetters(["isLoggedIn"]),
+    components: {AnchorLoginButton, WaxLoginButton},
 };
 </script>
 

@@ -1,37 +1,72 @@
 export default {
     actions: {
-        getUser({commit, getters, dispatch}, user = 1) {
-            axios.get(`/api/users/${user}`).then(res => {
+        getUser({commit, getters, dispatch}) {
+            axios.get(`/api/users/${getters.user.id}`).then(res => {
                 commit('setUser', res.data);
-                console.log(getters.user.id)
+            });
+            dispatch('getUserStats');
+            dispatch('getUserWallet');
+            dispatch('getUserResources');
+        },
+        getUserStats({commit, getters}) {
+            axios.get(`/api/users/${getters.user.id}/stats`).then(res => {
+                commit('setUserStats', res.data);
+            });
+        },
+        getUserWallet({commit, getters}) {
+            axios.get(`/api/users/${getters.user.id}/wallet`).then(res => {
+                commit('setUserWallet', res.data);
+            });
+        },
+        getUserResources({commit, getters}) {
+            axios.get(`/api/users/${getters.user.id}/resources`).then(res => {
+                commit('setUserResources', res.data);
+            });
+        },
+        loginUser({dispatch}, loginRequest) {
+            axios.post('/login', loginRequest).then(res => {
+                dispatch('setUser', res.data.user);
             });
         },
         setUser({commit, getters, dispatch}, user) {
-            commit('setUser', user);
-        },
-        getUserProps({commit, getters, dispatch}, user = 1) {
-            axios.get(`/api/users/${user}/props`).then(res => {
-                commit('setUserProps', res.data);
-            });
+            if (user.id){
+                commit('setUser', user);
+                dispatch('getUser');
+            }
         },
     },
     mutations: {
         setUser(state, user) {
             state.user = user;
         },
-        setUserProps(state, userProps) {
-            state.userProps = userProps;
+        setUserStats(state, userStats) {
+            state.userStats = userStats;
+        },
+        setUserWallet(state, UserWallet) {
+            state.userWallet = UserWallet;
+        },
+        setUserResources(state, UserResources) {
+            state.UserResources = UserResources;
         }
     },
     state: {
         user: {},
+        userStats: {},
+        userWallet: {},
+        userResources: {},
     },
     getters: {
         user(state) {
             return state.user
         },
-        userProps(state) {
-            return state.userProps
+        userStats(state) {
+            return state.userStats
+        },
+        userWallet(state) {
+            return state.userWallet
+        },
+        userResources(state) {
+            return state.userResources
         },
         isLoggedIn(state) {
             return !!state.user.id;

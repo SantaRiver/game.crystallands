@@ -10,6 +10,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -22,14 +23,12 @@ class AuthController extends Controller
     public function login(LoginRequest $request): JsonResponse //: User
     {
         /** @var User $user */
-        $user = Auth::user();
+        $user = User::whereName($request->get('account')['account_name'])->first();
         if (!$user) {
             event(new NewUser($user = $this->create($request->all())));
         }
 
-        //TODO: проверить права пользователя (спасибо Copilot)
         Auth::login($user, false);
-        $user->auth = true;
         return response()->json(['user' => $user]);
     }
 
@@ -48,6 +47,7 @@ class AuthController extends Controller
             'type' => UserTypeDict::USER,
             'active' => 1,
             'auth_type' => $data['authType'],
+            'api_token' => Str::random(80),
         ]);
 
         $user->save();

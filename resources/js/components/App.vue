@@ -15,6 +15,7 @@ export default {
     computed: mapGetters(["user"]),
     methods: mapActions(["getUser", "setUser"]),
     created() {
+        //console.log(this.loggedUser);
         this.setUser(JSON.parse(this.loggedUser));
     }
 }
