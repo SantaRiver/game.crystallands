@@ -2,9 +2,18 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Dicts\UserTypeDict;
+use App\Events\NewUser;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -18,8 +27,6 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-
-    use AuthenticatesUsers;
 
     /**
      * Where to redirect users after login.

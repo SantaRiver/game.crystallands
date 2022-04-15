@@ -1,11 +1,22 @@
 <template>
-    <game></game>
+    <div>
+        <game></game>
+    </div>
 </template>
 
 <script>
+import {mapGetters, mapActions} from "vuex";
+import Game from "./Game";
+
 export default {
-    mounted() {
-        console.log('Component mounted.')
+    name: "app",
+    components: {Game},
+    props: ["loggedUser"],
+    computed: mapGetters(["user"]),
+    methods: mapActions(["getUser", "setUser"]),
+    created() {
+        //console.log(this.loggedUser);
+        this.setUser(JSON.parse(this.loggedUser));
     }
 }
 </script>

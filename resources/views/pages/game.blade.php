@@ -1,5 +1,7 @@
 @extends('layouts.game')
 
 @section('app')
-<app></app>
+    <app
+        :logged-user="'{{ json_encode($user) }}'">
+    </app>
 @endsection

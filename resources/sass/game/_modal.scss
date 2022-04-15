@@ -1,0 +1,40 @@
+.modal {
+    &-mask {
+        position: fixed;
+        z-index: 9998;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: table;
+        transition: opacity 0.3s ease;
+    }
+    &-wrapper {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    &-login {
+        &-content {
+            padding: 80px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 350px;
+            pointer-events: auto;
+            background: url(../../images/interface/board.png) center;
+            background-size: cover;
+            outline: 0;
+        }
+    }
+
+    /* Modal animation */
+    &-enter-active,
+    &-leave-active {
+        transition: opacity 0.2s;
+    }
+    &-enter, &-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+        opacity: 0;
+    }
+}

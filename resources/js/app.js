@@ -7,6 +7,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue').default;
+import store from './store'
 
 /**
  * The following block of code may be used to automatically register your
@@ -22,8 +23,12 @@ window.Vue = require('vue').default;
 Vue.component('app', require('./components/App.vue').default);
 Vue.component('game', require('./components/Game.vue').default);
 
-Vue.component('anchor', require('./components/api/Anchor.vue').default);
-Vue.component('wax', require('./components/api/Wax.vue').default);
+Vue.component('anchor-login-btn', require('./components/api/AnchorLoginButton.vue').default);
+Vue.component('wax-login-btn', require('./components/api/WaxLoginButton.vue').default);
+
+Vue.component('game-panel', require('./components/elements/game/GamePanel.vue').default);
+Vue.component('game-menu', require('./components/elements/game/GameMenu.vue').default);
+Vue.component('game-login-modal', require('./components/elements/game/GameLoginModal.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -31,6 +36,11 @@ Vue.component('wax', require('./components/api/Wax.vue').default);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
+axios.defaults.headers['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').content
+
+export const eventBus = new Vue()
+
+export const app = new Vue({
+    store,
     el: '#app',
 });
