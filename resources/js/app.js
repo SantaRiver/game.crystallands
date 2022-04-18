@@ -30,6 +30,9 @@ Vue.component('game-panel', require('./components/elements/game/GamePanel.vue').
 Vue.component('game-menu', require('./components/elements/game/GameMenu.vue').default);
 Vue.component('game-login-modal', require('./components/elements/game/GameLoginModal.vue').default);
 
+
+Vue.component('user-interface', require('./components/elements/game/interfaces/UserInterface').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

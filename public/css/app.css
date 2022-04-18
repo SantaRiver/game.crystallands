@@ -11289,6 +11289,21 @@ textarea.form-control-lg {
 .panel {
   max-width: 95vw;
 }
+.menu__item[type=button] {
+  font-weight: bold;
+  color: black;
+  height: 52px;
+  width: 122px;
+  padding: 0;
+  border: none;
+  background: url(/images/button.png?0caf1381ff13155bea876b57295fdf85);
+  background-size: cover;
+}
+.menu__item[type=button]:active {
+  background: url(/images/button_push.png?0328b7300e936a2fce87cd99b2212efa);
+  background-size: cover;
+}
+
 .modal {
   /* Modal animation */
 }

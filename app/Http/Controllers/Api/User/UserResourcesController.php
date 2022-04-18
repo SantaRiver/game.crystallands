@@ -19,7 +19,7 @@ class UserResourcesController extends Controller
     public function show($id): JsonResponse
     {
         $user = User::findOrFail($id);
-        $userWallet = $user->wallet()->first();
+        $userWallet = $user->resources()->first();
         return response()->json($userWallet, ResponseAlias::HTTP_CREATED);
     }
 }

@@ -1,5 +1,17 @@
-.menu{
-    &__item[type=button]{
+.menu {
+    &__item[type=button] {
+        font-weight: bold;
+        color: black;
+        height: 52px;
+        width: 122px;
+        padding: 0;
+        border: none;
+        background: url(../../images/interface/button.png);
+        background-size: cover;
+    }
 
+    &__item[type=button]:active {
+        background: url(../../images/interface/button_push.png);
+        background-size: cover;
     }
 }

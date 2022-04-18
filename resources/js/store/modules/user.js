@@ -46,7 +46,7 @@ export default {
             state.userWallet = UserWallet;
         },
         setUserResources(state, UserResources) {
-            state.UserResources = UserResources;
+            state.userResources = UserResources;
         }
     },
     state: {
