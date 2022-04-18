@@ -7,6 +7,7 @@ export default {
             dispatch('getUserStats');
             dispatch('getUserWallet');
             dispatch('getUserResources');
+            dispatch('getUserInventory');
         },
         getUserStats({commit, getters}) {
             axios.get(`/api/users/${getters.user.id}/stats`).then(res => {
@@ -21,6 +22,11 @@ export default {
         getUserResources({commit, getters}) {
             axios.get(`/api/users/${getters.user.id}/resources`).then(res => {
                 commit('setUserResources', res.data);
+            });
+        },
+        getUserInventory({commit, getters}) {
+            axios.get(`/api/users/${getters.user.id}/inventory`).then(res => {
+                commit('setUserInventory', res.data);
             });
         },
         loginUser({dispatch}, loginRequest) {
@@ -42,11 +48,14 @@ export default {
         setUserStats(state, userStats) {
             state.userStats = userStats;
         },
-        setUserWallet(state, UserWallet) {
-            state.userWallet = UserWallet;
+        setUserWallet(state, userWallet) {
+            state.userWallet = userWallet;
         },
-        setUserResources(state, UserResources) {
-            state.userResources = UserResources;
+        setUserResources(state, userResources) {
+            state.userResources = userResources;
+        },
+        setUserInventory(state, userInventory) {
+            state.userInventory = userInventory;
         }
     },
     state: {
@@ -54,6 +63,7 @@ export default {
         userStats: {},
         userWallet: {},
         userResources: {},
+        userInventory: {},
     },
     getters: {
         user(state) {
@@ -67,6 +77,9 @@ export default {
         },
         userResources(state) {
             return state.userResources
+        },
+        userInventory(state) {
+            return state.userInventory
         },
         isLoggedIn(state) {
             return !!state.user.id;

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\User\UserController;
+use App\Http\Controllers\Api\User\UserInventoryController;
 use App\Http\Controllers\Api\User\UserResourcesController;
 use App\Http\Controllers\Api\User\UserStatsController;
 use App\Http\Controllers\Api\User\UserWalletController;
@@ -17,11 +18,12 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::middleware('auth:api')->prefix('users/{user}')->group(function () {
+Route::prefix('users/{user}')->group(function () {
     Route::get(null, [UserController::class, 'show']);
     Route::get('stats', [UserStatsController::class, 'show']);
     Route::get('wallet', [UserWalletController::class, 'show']);
     Route::get('resources', [UserResourcesController::class, 'show']);
+    Route::get('inventory', [UserInventoryController::class, 'show']);
 });
 Route::post('login', [AuthController::class, 'login']);
 Route::post('logout', [AuthController::class, 'logout']);

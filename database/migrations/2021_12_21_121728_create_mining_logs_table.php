@@ -18,7 +18,7 @@ class CreateMiningLogsTable extends Migration
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('mining_location_id')->constrained('mining_locations');
             $table->foreignId('item_id')->constrained('items');
-            $table->foreignId('item_asset_id')->constrained('item_assets');
+            $table->foreignId('user_item_id')->constrained('user_inventory');
             $table->timestamp('end_time');
             $table->timestamps();
         });

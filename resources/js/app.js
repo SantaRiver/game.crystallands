@@ -20,18 +20,19 @@ import store from './store'
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('app', require('./components/App.vue').default);
-Vue.component('game', require('./components/Game.vue').default);
+Vue.component('app', require('./components/App').default);
+Vue.component('game', require('./components/Game').default);
 
-Vue.component('anchor-login-btn', require('./components/api/AnchorLoginButton.vue').default);
-Vue.component('wax-login-btn', require('./components/api/WaxLoginButton.vue').default);
+Vue.component('anchor-login-btn', require('./components/api/AnchorLoginButton').default);
+Vue.component('wax-login-btn', require('./components/api/WaxLoginButton').default);
 
-Vue.component('game-panel', require('./components/elements/game/GamePanel.vue').default);
-Vue.component('game-menu', require('./components/elements/game/GameMenu.vue').default);
-Vue.component('game-login-modal', require('./components/elements/game/GameLoginModal.vue').default);
+Vue.component('game-panel', require('./components/elements/game/GamePanel').default);
+Vue.component('game-menu', require('./components/elements/game/GameMenu').default);
+Vue.component('game-login-modal', require('./components/elements/game/GameLoginModal').default);
 
 
 Vue.component('user-interface', require('./components/elements/game/interfaces/UserInterface').default);
+Vue.component('inventory-interface', require('./components/elements/game/interfaces/InventoryInterface').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

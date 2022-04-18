@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\User\UserInventory;
 use App\Models\User\UserResources;
 use App\Models\User\UserStats;
 use App\Models\User\UserWallet;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -81,6 +83,16 @@ class User extends Authenticatable
     public function resources(): HasOne
     {
         return $this->hasOne(UserResources::class);
+    }
+
+    /**
+     * Return user inventory.
+     *
+     * @return HasMany
+     */
+    public function inventory(): HasMany
+    {
+        return $this->hasMany(UserInventory::class);
     }
 
 }
